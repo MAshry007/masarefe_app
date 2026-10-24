@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:masarefe_app/widgets/custom_button.dart';
 import 'package:masarefe_app/widgets/custom_picture_container.dart';
@@ -6,7 +7,9 @@ import 'package:masarefe_app/widgets/custom_text.dart';
 import 'package:masarefe_app/widgets/custom_text_field.dart';
 
 class RegisterScreenBody extends StatelessWidget {
-  const RegisterScreenBody({super.key});
+  const RegisterScreenBody({super.key, this.onTap});
+
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -87,6 +90,8 @@ class RegisterScreenBody extends StatelessWidget {
                           decoration:
                               TextDecoration.underline,
                         ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = onTap,
                       ),
                     ],
                   ),
