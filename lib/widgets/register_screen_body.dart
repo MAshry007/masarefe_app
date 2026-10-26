@@ -4,7 +4,7 @@ import 'package:masarefe_app/widgets/custom_button.dart';
 import 'package:masarefe_app/widgets/custom_picture_container.dart';
 import 'package:masarefe_app/widgets/custom_policy_text.dart';
 import 'package:masarefe_app/widgets/custom_text.dart';
-import 'package:masarefe_app/widgets/custom_text_field.dart';
+import 'package:masarefe_app/widgets/custom_text_form_field.dart';
 
 class RegisterScreenBody extends StatelessWidget {
   const RegisterScreenBody({super.key, this.onTap});
@@ -37,7 +37,7 @@ class RegisterScreenBody extends StatelessWidget {
               family: 'InterBold',
             ),
             SizedBox(height: 2),
-            CustomTextField(hint: 'ENTER NAME'),
+            CustomTextFormField(hint: 'ENTER NAME'),
             SizedBox(height: 16),
             CustomText(
               text: 'MOBILE NUMBER',
@@ -46,7 +46,7 @@ class RegisterScreenBody extends StatelessWidget {
               family: 'InterBold',
             ),
             SizedBox(height: 2),
-            CustomTextField(hint: '+1 (000) 000-0000'),
+            CustomTextFormField(hint: '+1 (000) 000-0000'),
             SizedBox(height: 16),
             CustomText(
               text: 'PASSWORD',
@@ -55,9 +55,9 @@ class RegisterScreenBody extends StatelessWidget {
               family: 'InterBold',
             ),
             SizedBox(height: 2),
-            CustomTextField(
+            CustomTextFormField(
               hint: '••••••••',
-              obscureText: true,
+              isPassword: true,
             ),
             SizedBox(height: 24),
             CustomPolicyText(),

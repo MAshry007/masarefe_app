@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatelessWidget {
-  const CustomTextField({
+class CustomTextFormField extends StatefulWidget {
+  const CustomTextFormField({
     super.key,
     this.hint,
-    this.obscureText = false,
+    this.isPassword = false,
   });
 
   final String? hint;
-  final bool obscureText;
+  final bool isPassword;
+
+  @override
+  State<CustomTextFormField> createState() =>
+      _CustomTextFieldState();
+}
+
+class _CustomTextFieldState
+    extends State<CustomTextFormField> {
+  bool isPasswordVisible = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +31,8 @@ class CustomTextField extends StatelessWidget {
         ],
       ),
       child: TextFormField(
-        obscureText: obscureText,
+        obscureText:
+            widget.isPassword && !isPasswordVisible,
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
@@ -29,7 +40,7 @@ class CustomTextField extends StatelessWidget {
             vertical: 16,
             horizontal: 16,
           ),
-          hintText: hint,
+          hintText: widget.hint,
           hintStyle: TextStyle(
             color: Color(0xff777777),
             fontSize: 18,
@@ -43,6 +54,21 @@ class CustomTextField extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.zero),
             borderSide: BorderSide(color: Colors.black),
           ),
+          suffixIcon: widget.isPassword
+              ? IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isPasswordVisible =
+                          !isPasswordVisible;
+                    });
+                  },
+                  icon: Icon(
+                    isPasswordVisible
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                  ),
+                )
+              : null,
         ),
       ),
     );
