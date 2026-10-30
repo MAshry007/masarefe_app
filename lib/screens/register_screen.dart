@@ -31,12 +31,7 @@ class RegisterScreen extends StatelessWidget {
               offset: Offset(0, -10),
               child: CustomTextContainer(),
             ),
-            Expanded(
-              child: Align(
-                alignment: AlignmentGeometry.topLeft,
-                child: RegisterScreenBody(),
-              ),
-            ),
+            Expanded(child: RegisterScreenBody()),
           ],
         ),
       ),

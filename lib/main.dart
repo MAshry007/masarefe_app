@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:masarefe_app/screens/login_screen.dart';
 import 'package:masarefe_app/screens/register_screen.dart';
 
 void main() {
@@ -15,6 +16,7 @@ class MasarefeApp extends StatelessWidget {
       theme: ThemeData.light(),
       routes: {
         RegisterScreen.id: (context) => RegisterScreen(),
+        LoginScreen.id: (context) => LoginScreen(),
       },
       initialRoute: RegisterScreen.id,
     );
