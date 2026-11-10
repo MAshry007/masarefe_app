@@ -27,7 +27,13 @@ class RegisterScreenBody extends StatelessWidget {
               family: 'InterBold',
             ),
             SizedBox(height: 5),
-            CustomPictureContainer(),
+            CustomPictureContainer(
+              color: Colors.white,
+              height: 135,
+              width: 135,
+              icon: Icon(Icons.add, size: 40),
+              boxShadow: [BoxShadow(offset: Offset(5, 5))],
+            ),
             SizedBox(height: 24),
             CustomText(
               text: 'FULL NAME',

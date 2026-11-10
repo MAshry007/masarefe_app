@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:masarefe_app/screens/home_screen.dart';
 import 'package:masarefe_app/screens/register_screen.dart';
 import 'package:masarefe_app/widgets/custom_button.dart';
 import 'package:masarefe_app/widgets/custom_text.dart';
@@ -35,6 +36,13 @@ class LoginScreenBody extends StatelessWidget {
         SizedBox(height: 38),
         Center(
           child: CustomButton(
+            onTap: () {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                HomeScreen.id,
+                (route) => false,
+              );
+            },
             buttonColor: Colors.black,
             height: 70,
             width: double.infinity,

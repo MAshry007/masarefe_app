@@ -1,26 +1,34 @@
 import 'package:flutter/material.dart';
 
 class CustomPictureContainer extends StatelessWidget {
-  const CustomPictureContainer({super.key, this.onTap});
+  const CustomPictureContainer({
+    super.key,
+    this.onTap,
+    this.height,
+    this.width,
+    this.icon,
+    this.boxShadow,
+    this.color,
+  });
 
   final void Function()? onTap;
+  final double? height;
+  final double? width;
+  final Widget? icon;
+  final Color? color;
+  final List<BoxShadow>? boxShadow;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 135,
-        width: 135,
+        height: height,
+        width: width,
         decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black,
-              offset: Offset(5, 5),
-            ),
-          ],
+          color: color,
+          boxShadow: boxShadow,
         ),
-        child: Center(child: Icon(Icons.add, size: 40)),
+        child: Center(child: icon),
       ),
     );
   }
