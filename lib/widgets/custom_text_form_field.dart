@@ -5,10 +5,12 @@ class CustomTextFormField extends StatefulWidget {
     super.key,
     this.hint,
     this.isPassword = false,
+    this.onChanged,
   });
 
   final String? hint;
   final bool isPassword;
+  final Function(String)? onChanged;
 
   @override
   State<CustomTextFormField> createState() =>
@@ -31,6 +33,14 @@ class _CustomTextFieldState
         ],
       ),
       child: TextFormField(
+        onChanged: widget.onChanged,
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'This field is required';
+          } else {
+            return null;
+          }
+        },
         obscureText:
             widget.isPassword && !isPasswordVisible,
         decoration: InputDecoration(
